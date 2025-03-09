@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản của tôi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadAccountInfo()">
+        <video autoplay loop muted playsinline id="background-video">
+    <source src="background.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+</video>
+    <div class="container">
+        <h1>Thông tin tài khoản</h1>
+        <p><strong>Tên đăng nhập:</strong> <span id="username"></span></p>
+        
+        <h2>Đơn hàng đã mua</h2>
+        <ul id="order-list"></ul>
+
+        <!-- Nút trở về trang index1.html -->
+        <button id="home-btn">Trở về trang chủ</button>
+        <button id="logout-btn">Đăng xuất</button>
+    </div>
+
+    <script>
+        function loadAccountInfo() {
+            let username = localStorage.getItem("loggedInUser");
+            if (!username) {
+                alert("Bạn cần đăng nhập để xem tài khoản!");
+                window.location.href = "login.html";
+                return;
+            }
+
+            document.getElementById("username").textContent = username;
+
+            // Lấy đơn hàng đã mua từ localStorage
+            let orders = JSON.parse(localStorage.getItem(`orders_${username}`)) || [];
+            let orderList = document.getElementById("order-list");
+            orderList.innerHTML = ""; // Xóa nội dung cũ
+
+            if (orders.length === 0) {
+                orderList.innerHTML = "<li>Chưa có đơn hàng nào.</li>";
+            } else {
+                orders.forEach(order => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `<strong>Ngày đặt:</strong> ${order.date} <br> 
+                                    <strong>Sản phẩm:</strong> ${order.items} <br> 
+                                    <strong>Tổng tiền:</strong> ${order.total}đ`;
+                    orderList.appendChild(li);
+                });
+            }
+        }
+
+        // Nút đăng xuất
+        document.getElementById("logout-btn").addEventListener("click", function () {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "login.html";
+        });
+
+        // Nút trở về trang index1.html
+        document.getElementById("home-btn").addEventListener("click", function () {
+            window.location.href = "index1.html"; // Chuyển hướng về trang index1.html
+        });
+    </script>
+    <script>
+    function loadAccountInfo() {
+        let username = localStorage.getItem("loggedInUser");
+        if (!username) {
+            alert("Bạn cần đăng nhập để xem tài khoản!");
+            window.location.href = "login.html";
+            return;
+        }
+
+        document.getElementById("username").textContent = username;
+
+        // Lấy đơn hàng đã mua từ localStorage
+        let orders = JSON.parse(localStorage.getItem(`orders_${username}`)) || [];
+        let orderList = document.getElementById("order-list");
+        orderList.innerHTML = ""; // Xóa nội dung cũ
+
+        if (orders.length === 0) {
+            orderList.innerHTML = "<li>Chưa có đơn hàng nào.</li>";
+        } else {
+            orders.forEach(order => {
+                let li = document.createElement("li");
+                li.innerHTML = `<strong>Ngày đặt:</strong> ${order.date} <br> 
+                                <strong>Sản phẩm:</strong> ${order.items} <br> 
+                                <strong>Tổng tiền:</strong> ${order.total}đ`;
+                orderList.appendChild(li);
+            });
+        }
+    }
+
+    // Nút đăng xuất
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+
+    // Nút trở về trang index1.html
+    document.getElementById("home-btn").addEventListener("click", function () {
+        window.location.href = "index1.html";
+    });
+</script>
+
+</body>
+</html>

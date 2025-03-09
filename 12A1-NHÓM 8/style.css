@@ -1,0 +1,655 @@
+/* Định dạng chung */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    display: flex;
+}
+
+
+
+/* Main content */
+.main {
+    margin-left: 270px;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    background: transparent; /* Xóa nền */
+    border: none; /* Xóa viền */
+    overflow: hidden;
+    border-radius: 20px; /* Bo tròn tất cả các góc */
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 800px; /* Giới hạn để tránh tràn trên màn hình lớn */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+/* Ảnh banner */
+.banner {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; /* Bo tròn góc ảnh */
+    box-shadow: none; /* Xóa hiệu ứng bóng nếu có */
+}
+
+
+/* Khung nội dung chính */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* Team Section */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.team-member {
+    width: 400px;
+    background: rgba(0, 0, 0, 0.6); /* Nền đen nhám đục */
+    backdrop-filter: blur(10px); /* Làm mờ nền phía sau */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #1abc9c;
+}
+
+.team-member h3 {
+    margin: 15px 0 8px;
+    font-size: 22px;
+    color: white; /* Chữ màu trắng */
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #ddd; /* Chữ màu trắng nhạt hơn */
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Nút bấm */
+.btn {
+    display: inline-block;
+    background: #1abc9c;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s;
+    font-weight: bold;
+    border: 2px solid #16a085;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #16a085;
+    border-color: #1abc9c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    background: #f4f4f4;
+    border-radius: 20px 20px 0 0; /* Bo tròn góc trên */
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .main {
+        margin-left: 210px;
+    }
+    
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .container, .footer {
+        width: 95%;
+    }
+}
+/* Sidebar Menu */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(to bottom, #2c3e50, #34495e); /* Hiệu ứng màu gradient */
+    background: rgba(44, 62, 80, 0.4); /* Giữ màu cũ nhưng trong suốt hơn */
+    backdrop-filter: blur(15px); /* Hiệu ứng nhám đục */
+    -webkit-backdrop-filter: blur(15px); /* Hỗ trợ Safari */
+    color: white;
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng */
+    border-radius: 0; /* Loại bỏ hoàn toàn bo góc */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Giữ khoảng cách giữa các dòng, tăng cỡ chữ */
+.sidebar a {
+    display: block;
+    padding: 12px 15px; /* Tăng padding */
+    text-decoration: none;
+    color: white;
+    font-size: 16px; /* Tăng kích thước chữ */
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 10px; /* Bo tròn chỉ nút */
+    margin: 5px;
+}
+
+/* Hiệu ứng khi hover */
+.sidebar a:hover, 
+.sidebar a.active {
+    background: #1abc9c;
+    transform: scale(1.05);
+}
+
+/* Đảm bảo tất cả các dòng có cùng kích thước khi hover */
+.sidebar a:hover {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng nhẹ */
+}
+
+
+#logout-btn {
+    background-color: #e74c3c; /* Màu đỏ mặc định */
+}
+
+#logout-btn:hover {
+    background-color: orange; /* Đổi thành màu cam khi di chuột vào */
+    transform: translateY(-2px); /* Hiệu ứng nổi lên */
+}
+.container img {
+    width: 100%; /* Giúp ảnh vừa với khung nội dung */
+    max-width: 600px; /* Đảm bảo ảnh không quá lớn */
+    border-radius: 15px; /* Bo tròn góc */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng đổ bóng nhẹ */
+    display: block;
+    margin: 0 auto; /* Căn giữa ảnh */
+}
+/* Button Container - Căn giữa nút */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Button - Nút quay lại trang chủ */
+.btn {
+    display: inline-block;
+    background: #1abc9c;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    border: 3px solid #16a085;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+}
+
+/* Hiệu ứng hover để nút nổi bật hơn */
+.btn:hover {
+    background: #16a085;
+    border-color: #1abc9c;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+.slogan {
+    font-family: 'Playfair Display', serif; /* Phông chữ nghệ thuật */
+    font-size: 18px;
+    font-weight: bold;
+    color: #fffbf1; /* Màu chữ nhẹ nhàng, nổi bật */
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Nền gradient hiện đại */
+    padding: 12px 20px;
+    border-radius: 12px; /* Bo góc mềm mại */
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    text-align: center;
+    letter-spacing: 1px; /* Giãn chữ để trông chuyên nghiệp hơn */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Hiệu ứng mượt mà khi hiển thị */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    .cart-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .cart-item {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cart-item img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+    
+    .cart-item h3 {
+        margin: 0 0 5px;
+    }
+    
+    .cart-item p {
+        margin: 0;
+    }
+    
+    #clear-cart, #order-now {
+        margin-top: 20px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #clear-cart {
+        background: #e74c3c;
+        color: white;
+    }
+
+    #clear-cart:hover {
+        background: #c0392b;
+    }
+
+    #order-now {
+        background: #27ae60;
+        color: white;
+        margin-left: 10px;
+    }
+
+    #order-now:hover {
+        background: #219150;
+    }
+
+    .main {
+        text-align: center;
+        padding: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: auto;
+    }
+
+    input, textarea, button {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    button {
+        background: #27ae60;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background: #219150;
+    }
+
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        margin-top: 20px;
+    }
+    
+    .product {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .product img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%; /* Bo tròn hình ảnh */
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+    
+    .product h3 {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    
+    .product p {
+        font-size: 16px;
+        color: #555;
+        margin: 5px 0 15px;
+    }
+    
+    .buy-btn {
+        background: #1abc9c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+    
+    .buy-btn:hover {
+        background: #16a085;
+        transform: scale(1.05);
+    }
+    
+    .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong sidebar */
+    padding-top: 20px;
+}
+
+/* Icon tài khoản */
+.sidebar .profile-icon {
+    width: 70px; /* Kích thước khung */
+    height: 70px;
+    border-radius: 50%; /* Bo tròn khung chứa */
+    overflow: hidden; /* Cắt bớt phần dư thừa của ảnh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd; /* Màu nền */
+    border: 3px solid #ccc; /* Viền ban đầu */
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto; /* Canh giữa trong sidebar */
+    position: relative;
+}
+
+/* Ảnh bên trong */
+.sidebar .profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giữ tỷ lệ ảnh, không bị méo */
+    object-position: center; /* Căn giữa ảnh */
+    border-radius: 50%; /* Bo tròn ảnh */
+    transform: scale(3.1) translateY(1px); /* Phóng to ảnh thêm 0.1 lần và dịch lên một chút */
+}
+
+/* Hiệu ứng khi hover */
+.sidebar .profile-icon:hover {
+    transform: scale(1.1); /* Phóng to nhẹ khi di chuột vào */
+    border-color: orange; /* Chuyển màu viền thành cam */
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.7); /* Hiệu ứng nổi */
+}
+/* Video nền */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Nút Giỏ Hàng */
+.cart-button {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background: #ff6f61; /* Màu giống nút thêm vào giỏ hàng */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px; /* Bo góc */
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng khi hover */
+.cart-button:hover {
+    background: #e65b50;
+    transform: scale(1.05);
+}
+
+/* Lớp nền đen trong suốt */
+.product-container {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px; /* Bo góc */
+    z-index: -1;
+}
+
+/* Thiết kế sản phẩm */
+.product {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Hiệu ứng mờ */
+    border-radius: 12px; /* Bo góc */
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Nút Thêm Vào Giỏ Hàng */
+.buy-btn {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.buy-btn:hover {
+    background: #e65b50;
+    transform: scale(1.05);
+}
+/* Đặt nền đen trong suốt cho phần chữ */
+.text-box {
+   position: relative;
+    background: rgba(0, 0, 0, 0.2); /* Nền nhẹ hơn để thấy hiệu ứng mờ */
+    backdrop-filter: blur(20px); /* Hiệu ứng mờ rõ hơn */
+    color: white; /* Chữ màu trắng */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden; /* Đảm bảo lớp phủ không tràn */
+    
+}
+img {
+    border-radius: 15px; /* Bo góc cho tất cả ảnh */
+    object-fit: cover;
+    background: none; /* Xóa nền mặc định nếu có */
+}
+/* Chỉ áp dụng cho header của trang này */
+#special-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Thu ngắn header */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Nền trắng đục */
+    backdrop-filter: blur(5px); /* Hiệu ứng mờ */
+    border-radius: 20px; /* Bo tròn góc */
+    padding: 10px;
+}
+
+/* Chữ trong header có nền trắng đục */
+#special-header h1 {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #333;
+}
+/* Thêm một lớp phủ nhám phía sau container */
+.container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.2); /* Nền nhẹ hơn để thấy hiệu ứng mờ */
+    backdrop-filter: blur(20px); /* Hiệu ứng mờ rõ hơn */
+    color: white; /* Chữ màu trắng */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden; /* Đảm bảo lớp phủ không tràn */
+}
+
+/* Lớp nền nhám phía sau */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05); /* Tạo lớp phủ nhám */
+    backdrop-filter: blur(10px); /* Làm mờ nền phụ */
+    z-index: -1;
+    border-radius: 10px;
+}
+.container p {
+    text-align: justify; /* Căn đều hai bên */
+    text-indent: 30px; /* Thụt đầu dòng */
+    line-height: 1.8; /* Tăng khoảng cách giữa các dòng */
+    margin-bottom: 15px; /* Tạo khoảng cách giữa các đoạn */
+}
+.container b, 
+.container strong {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em; /* Điều chỉnh kích thước chữ */
+    white-space: nowrap; /* Giữ chữ luôn trên một dòng */
+}

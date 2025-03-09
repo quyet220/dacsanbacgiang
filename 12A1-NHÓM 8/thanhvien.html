@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành Viên</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+        <video autoplay loop muted playsinline id="background-video">
+    <source src="background.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+</video>
+    <iframe src="music.html" style="display: none;"></iframe>
+
+    <div class="sidebar">
+        <div class="profile-icon">
+    <a href="account.html">
+        <img src="default-avatar.png" alt="Tài khoản">
+    </a>
+</div>
+
+        <a href="index1.html">Trang chủ</a>
+        <a href="vaitheu.html">Vải Thiều Lục Ngạn</a>
+        <a href="mychu.html">Mỳ Chũ</a>
+        <a href="banhda.html">Bánh Đa Thổ Hà</a>
+        <a href="shop.html" >Mua Sắm</a>
+<a href="#" id="logout-btn">Đăng xuất</a>
+<script>
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+</script>
+    </div>
+    <div class="main">
+        <h1>Đội Ngũ Phát Triển</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="quoccuong.jpg" alt="Thành viên 1">
+                <h3>Nguyễn Quốc Cường</h3>
+                <p>Trưởng nhóm</p>
+            </div>
+            <div class="team-member">
+                <img src="thanhdat.jpg" alt="Thành viên 2">
+                <h3>Nguyễn Thành Đạt</h3>
+                <p>Thành viên</p>
+            </div>
+            <div class="team-member">
+                <img src="manhquyet.jpg" alt="Thành viên 3">
+                <h3>Vũ Mạnh Quyết</h3>
+                <p>Thành viên</p>
+            </div>
+            <div class="team-member">
+                <img src="minhphuong.jpg" alt="Thành viên 4">
+                <h3>Ngô Minh Phương</h3>
+                <p>Thành Viên</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+</script>
+</body>
+</html>
+<style>
+    .main h1 {
+    background: rgba(0, 0, 0, 0.4); /* Nền đen mờ */
+    backdrop-filter: blur(10px); /* Hiệu ứng làm mờ */
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: inline-block; /* Chỉ chiếm không gian vừa với nội dung */
+    text-align: center;
+    margin: 20px auto;
+    width: 80%; /* Giống với các phần nội dung khác */
+    max-width: 800px; /* Giới hạn chiều rộng */
+    color: white;
+}
+</style>

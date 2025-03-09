@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặc Sản Bắc Giang</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <video autoplay loop muted playsinline id="background-video">
+    <source src="background.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+</video>
+
+    <iframe src="music.html" style="display: none;"></iframe>
+
+    <div class="sidebar">
+        <div class="profile-icon">
+    <a href="account.html">
+        <img src="default-avatar.png" alt="Tài khoản">
+    </a>
+</div>
+
+
+        <a href="vaitheu.html" onmouseover="showImage('vaithieu.jpg')" onmouseout="resetImage()">Vải Thiều Lục Ngạn</a>
+        <a href="mychu.html" onmouseover="showImage('mychu.jpg')" onmouseout="resetImage()">Mỳ Chũ</a>
+        <a href="banhda.html" onmouseover="showImage('banhda.jpg')" onmouseout="resetImage()">Bánh Đa Thổ Hà</a>
+        <a href="thanhvien.html" onmouseover="showImage('team.jpg')" onmouseout="resetImage()">Thành viên</a>
+        <a href="shop.html" onmouseover="showImage('nongsan.jpg')" onmouseout="resetImage()">Mua Sắm</a>
+        <a href="#" id="logout-btn">Đăng xuất</a>
+<script>
+    let music = document.getElementById("background-music");
+
+    document.addEventListener("click", function() {
+        let playPromise = music.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                console.log("Trình duyệt yêu cầu tương tác để phát nhạc.");
+            });
+        }
+    });
+
+    function toggleMusic() {
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    }
+</script>
+
+<script>
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+
+</script>
+    </div>
+    <div class="main">
+        <header>
+            <img id="displayImage" src="banner.png" alt="Banner" class="banner">
+        </header>
+
+        <!-- Nội dung chính của trang nếu có thể thêm vào đây -->
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section about">
+    <h2 class="text-box">Về Chúng Tôi</h2>
+    <p class="slogan">Chúng tôi là nhóm 8, đam mê ẩm thực và mong muốn quảng bá đặc sản Bắc Giang đến với mọi người.</p>
+</div>
+
+               
+                <div class="text-box";class="footer-section contact">
+                    <h2 >Liên Hệ</h2>
+                    <p>Email: quyet2k7vmq@gmail.</p>
+                    <p>Điện thoại: +84 974 015 938</p>
+                    <p>&copy; 2025 Đặc Sản Bắc Giang | Thiết kế bởi Nhóm 8<p>
+                </div>
+            </div>
+                
+        </footer>
+    </div>
+
+    <script>
+        function showImage(imageSrc) {
+            document.getElementById('displayImage').src = imageSrc;
+        }
+
+        function resetImage() {
+            document.getElementById('displayImage').src = 'banner.png';
+        }
+    </script>
+    <script src="script.js"></script>
+    <script>
+</script>
+<style>
+    body, h1, h2, h3, p, a, button {
+        color: white !important;
+    }
+</style>
+</body>
+</html>

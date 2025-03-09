@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+    <!-- Video nền -->
+    <video autoplay loop muted id="background-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Nút Xem Giỏ Hàng -->
+    <a href="cart.html" class="cart-button">Giỏ Hàng</a>
+
+
+    </div>
+
+    <iframe src="music.html" style="display: none;"></iframe>
+
+    <div class="sidebar">
+        <div class="profile-icon">
+            <a href="account.html">
+                <img src="default-avatar.png" alt="Tài khoản">
+            </a>
+        </div>
+
+        <a href="index1.html">Trang chủ</a>
+        <a href="vaitheu.html">Vải Thiều Lục Ngạn</a>
+        <a href="mychu.html">Mỳ Chũ</a>
+        <a href="banhda.html">Bánh Đa Thổ Hà</a>
+        <a href="shop.html" class="active">Mua Sắm</a>
+        <a href="#" id="logout-btn">Đăng xuất</a>
+    </div>
+    
+    <div class="main">
+        <h1>Cửa hàng sản phẩm</h1>
+
+        <div class="product-container">
+            <!-- Lớp nền đen trong suốt -->
+            <div class="overlay"></div>
+
+            <div class="product">
+                <img src="vaithieu.jpg" alt="Vải Thiều Lục Ngạn">
+                <h3>Vải Thiều Lục Ngạn</h3>
+                <p>Giá: 150.000đ/kg</p>
+                <button class="buy-btn">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="mychu3.jpg" alt="Mỳ Chũ">
+                <h3>Mỳ Chũ</h3>
+                <p>Giá: 50.000đ/gói</p>
+                <button class="buy-btn">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="banhda1.jpg" alt="Bánh Đa Thổ Hà">
+                <h3>Bánh Đa Thổ Hà</h3>
+                <p>Giá: 30.000đ/túi</p>
+                <button class="buy-btn">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name, price, image });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let buttons = document.querySelectorAll(".buy-btn");
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    let product = button.closest(".product");
+                    let name = product.querySelector("h3").innerText;
+                    let price = product.querySelector("p").innerText.match(/\d+/g).join(""); // Lấy số từ giá tiền
+                    let image = product.querySelector("img").src.split("/").pop(); // Lấy tên ảnh
+                    addToCart(name, price, image);
+                });
+            });
+
+            // Xử lý đăng xuất
+            document.getElementById("logout-btn").addEventListener("click", function (e) {
+                e.preventDefault();
+                if (confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+                    localStorage.removeItem("loggedInUser");
+                    window.location.href = "login.html";
+                }
+            });
+        });
+    </script>
+<style>
+    body, h1, h2, h3, p, a, button {
+        color: white !important;
+    }
+    .main h1 {
+    background: rgba(0, 0, 0, 0.4); /* Nền đen mờ */
+    backdrop-filter: blur(10px); /* Hiệu ứng làm mờ */
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: inline-block; /* Chỉ chiếm không gian vừa với nội dung */
+    text-align: center;
+    margin: 20px auto;
+    width: 80%; /* Giống với các phần nội dung khác */
+    max-width: 600px; /* Giới hạn chiều rộng */
+}
+</style>
+
+</body>
+</html>

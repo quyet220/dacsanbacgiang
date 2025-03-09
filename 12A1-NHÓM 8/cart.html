@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+        <video autoplay loop muted playsinline id="background-video">
+    <source src="background.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+</video>
+    <div class="sidebar">
+      <div class="profile-icon">
+    <a href="account.html">
+        <img src="default-avatar.png" alt="Tài khoản">
+    </a>
+</div>
+
+        <a href="index1.html">Trang chủ</a>
+        <a href="vaitheu.html">Vải Thiều Lục Ngạn</a>
+        <a href="mychu.html">Mỳ Chũ</a>
+        <a href="banhda.html">Bánh Đa Thổ Hà</a>
+        <a href="shop.html">Mua sắm</a>
+<a href="#" id="logout-btn">Đăng xuất</a>
+<script>
+    document.getElementById("logout-btn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    });
+</script>
+    </div>
+    
+    <div class="main">
+        <h1>Giỏ hàng của bạn</h1>
+        <div id="cart-items" class="cart-container"></div>
+        <h2 id="total-price">Tổng tiền: 0đ</h2>
+        <button id="clear-cart">Xóa giỏ hàng</button>
+        <button id="order-now">Đặt Hàng</button> <!-- Nút đặt hàng -->
+    </div>
+    
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById('cart-items');
+            let totalPrice = 0;
+            cartContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                let itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Giá: ${item.price}đ</p>
+                        <button onclick="removeFromCart(${index})">Xóa</button>
+                    </div>
+                `;
+                cartContainer.appendChild(itemElement);
+                totalPrice += parseInt(item.price);
+            });
+
+            document.getElementById('total-price').textContent = `Tổng tiền: ${totalPrice}đ`;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById('clear-cart').addEventListener('click', function() {
+            localStorage.removeItem('cart');
+            loadCart();
+        });
+
+        document.getElementById('order-now').addEventListener('click', function() {
+            window.location.href = 'order.html'; // Chuyển hướng sang trang đặt hàng
+        });
+
+        loadCart();
+    </script>
+    <script src="script.js"></script>
+    <script>
+    checkLogin();
+</script>
+</body>
+</html>
+
+
